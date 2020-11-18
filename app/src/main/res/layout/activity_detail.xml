@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFDF2"
+    tools:context=".DetailActivity">
+
+    <TextView
+        android:id="@+id/titleDetail_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:text="ชื่อเรื่อง"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/nameDetail_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="นามปากกา"
+        app:layout_constraintStart_toStartOf="@+id/titleDetail_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/titleDetail_text_view" />
+
+    <TextView
+        android:id="@+id/storyDetail_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="เนื้อเรื่อง"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="@+id/nameDetail_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/nameDetail_text_view" />
+</androidx.constraintlayout.widget.ConstraintLayout>
