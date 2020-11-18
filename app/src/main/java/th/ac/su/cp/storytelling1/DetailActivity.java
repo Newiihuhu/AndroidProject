@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,15 +24,21 @@ public class DetailActivity extends AppCompatActivity {
         String itemJson = intent.getStringExtra("item");
         WordItem item = new Gson().fromJson(itemJson, WordItem.class);
 
-        //Toast.makeText(DetailActivity.this,item,Toast.LENGTH_SHORT).show();
-        Log.i(TAG, item.title);
         TextView titleTV = findViewById(R.id.titleDetail_text_view);
-        titleTV.setText("Newii");
+        titleTV.setText(item.title);
         TextView nameTV = findViewById(R.id.nameDetail_text_view);
-        //nameTV.setText(item.name);
+        nameTV.setText(item.name);
         TextView storyTV = findViewById(R.id.storyDetail_text_view);
-        //storyTV.setText(item.story);
+        storyTV.setText(item.story);
 
+//        Button backButton = findViewById(R.id.back_button);
+//        backButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(DetailActivity.this,HomeActivity.class);
+//                startActivity(intent);
+//            }
+//        });
 
     }
 }

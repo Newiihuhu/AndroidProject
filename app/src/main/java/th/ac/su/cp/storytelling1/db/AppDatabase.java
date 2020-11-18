@@ -29,7 +29,7 @@ public abstract class AppDatabase extends RoomDatabase {
                 @Override
                 public void onCreate(@NonNull SupportSQLiteDatabase db) {
                     super.onCreate(db);
-                    //insertInitialData(context);
+                    insertInitialData(context);
                 }
             }).build();
         }

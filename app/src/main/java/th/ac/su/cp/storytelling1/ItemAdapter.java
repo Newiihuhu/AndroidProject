@@ -17,7 +17,7 @@ import th.ac.su.cp.storytelling1.model.WordItem;
 
 public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder>{
     private Context mContext;
-    private WordItem[] items;
+    private static WordItem[] items;
 
     public ItemAdapter(Context context,WordItem[] item){
         this.mContext = context;
@@ -41,7 +41,6 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder>{
         TextView titleTextView;
         TextView nameTextView;
         TextView storyTextView;
-        WordItem item;
         View rootView;
         public MyViewHolder(final Context context,View itemView){
             super(itemView);
@@ -52,6 +51,8 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder>{
             rootView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    int pos = getAdapterPosition();
+                    WordItem item = items[pos];
                     //Toast.makeText(context,item, Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(context,DetailActivity.class);
                     String itemJson = new Gson().toJson(item);
