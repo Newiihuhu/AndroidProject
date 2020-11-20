@@ -14,10 +14,8 @@ import th.ac.su.cp.storytelling1.util.AppExecutors;
 
 @Database(entities = {WordItem.class},exportSchema = false, version = 1)
 public abstract class AppDatabase extends RoomDatabase {
-    //ตั้งชื่อdatabase
     private static final String DB_NAME = "item.db";
     private static AppDatabase sInstance;
-    //เข้าถึงItemDao
     public abstract ItemDao itemDao();
     public static synchronized AppDatabase getInstance(final Context context) {
         if (sInstance == null) {
