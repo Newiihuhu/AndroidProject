@@ -9,12 +9,15 @@ import th.ac.su.cp.storytelling1.model.WordItem;
 
 @Dao
 public interface ItemDao {
+    //แสดงitemทั้งหมด
     @Query("SELECT * FROM item")
     WordItem[] getAllItem();
 
-    @Query("SELECT * FROM item WHERE title = :title")
-    WordItem getItemByTitle(String title);
+    //selectเพื่อค้นหาข้อมูลด้วยtitle
+    @Query("SELECT * FROM item WHERE title like :title")
+    WordItem[] getItemByTitle(String title);
 
+    //เพิ่มข้อมูล
     @Insert
     void addItem(WordItem... items);
 }

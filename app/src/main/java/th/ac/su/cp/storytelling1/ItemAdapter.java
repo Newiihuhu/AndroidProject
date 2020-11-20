@@ -28,12 +28,14 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder>{
                 .inflate(R.layout.activity_word_item, parent, false);
         return new MyViewHolder(mContext,v);
     }
+    //แสดงtitle name story บน View ของเรา
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position){
         WordItem item = items[position];
         holder.titleTextView.setText(item.title);
         holder.nameTextView.setText(item.name);
         holder.storyTextView.setText(item.story);
     }
+    //set ขนาดของ recycler view
     public int getItemCount() {
         return items.length;
     }
@@ -44,16 +46,17 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder>{
         View rootView;
         public MyViewHolder(final Context context,View itemView){
             super(itemView);
+            //เข้าถึงข้อมูลจาก layout
             titleTextView = itemView.findViewById(R.id.title_text_view);
             nameTextView = itemView.findViewById(R.id.name_text_view);
             storyTextView = itemView.findViewById(R.id.story_text_view);
             rootView = itemView;
+            //เมื่อคลิ๊ก view จะส่ง context และไปที่หน้า DetailActivity โดยใช้ library Gson
             rootView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     int pos = getAdapterPosition();
                     WordItem item = items[pos];
-                    //Toast.makeText(context,item, Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(context,DetailActivity.class);
                     String itemJson = new Gson().toJson(item);
                     intent.putExtra("item",itemJson);

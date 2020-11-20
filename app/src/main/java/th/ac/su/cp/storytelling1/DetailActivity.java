@@ -16,15 +16,15 @@ import com.google.gson.Gson;
 import th.ac.su.cp.storytelling1.model.WordItem;
 
 public class DetailActivity extends AppCompatActivity {
-    private static final String TAG = DetailActivity.class.getName();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
+        //รับ intent มาจากหน้า ItemAdapter
         Intent intent = getIntent();
         String itemJson = intent.getStringExtra("item");
         WordItem item = new Gson().fromJson(itemJson, WordItem.class);
-
+        //set ข้อความไปบน layout
         TextView titleTV = findViewById(R.id.titleDetail_text_view);
         titleTV.setText(item.title);
         TextView nameTV = findViewById(R.id.nameDetail_text_view);
@@ -32,15 +32,5 @@ public class DetailActivity extends AppCompatActivity {
         TextView storyTV = findViewById(R.id.storyDetail_text_view);
         storyTV.setText(item.story);
         storyTV.setMovementMethod(new ScrollingMovementMethod());
-
-//        Button backButton = findViewById(R.id.back_button);
-//        backButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(DetailActivity.this,HomeActivity.class);
-//                startActivity(intent);
-//            }
-//        });
-
     }
 }
